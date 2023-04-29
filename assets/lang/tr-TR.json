@@ -1,0 +1,19 @@
+{
+  "appTitle": "Son Depremler",
+  "home": {
+    "settings": "Ayarlar",
+    "change_lang": "Dil Değiştir",
+    "mag": "Büyüklük",
+    "lat": "Enlem",
+    "lon": "Boylam",
+    "title": "Başlık",
+    "place": "Yer",
+    "details": "Detaylar",
+    "quake_details": "Deprem Detay",
+    "location": "Konum",
+    "map": "Harita",
+    "date": "Tarih",
+    "time": "Zaman",
+    "depth": "Derinlik"
+  }
+}

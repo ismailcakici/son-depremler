@@ -1,0 +1,53 @@
+name: son_depremler
+description: A flutter app that shows latest earthquakes.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.6 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  # Network
+  vexana: ^3.4.1
+  # Localization
+  easy_localization: ^3.0.1
+  # Maps
+  flutter_map: ^3.1.0
+  latlong2: ^0.8.1
+  # State
+  flutter_mobx: ^2.0.6+5
+  mobx: ^2.1.4
+  # Google
+  json_annotation: ^4.8.0
+  json_serializable: ^6.6.1
+  # Util
+  kartal: ^2.8.0
+  intl: ^0.17.0
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+  # Codegen
+  build_runner: ^2.3.3
+  mobx_codegen: ^2.2.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/lang/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/font/Poppins-Bold.ttf
+        - asset: assets/font/Poppins-Light.ttf
+        - asset: assets/font/Poppins-Medium.ttf
+        - asset: assets/font/Poppins-Regular.ttf
+        - asset: assets/font/Poppins-SemiBold.ttf
+        - asset: assets/font/Poppins-Thin.ttf

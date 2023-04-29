@@ -1,0 +1,19 @@
+{
+  "appTitle": "Latest Earthquakes",
+  "home": {
+    "settings": "Settings",
+    "change_lang": "Change Language",
+    "mag": "Magnitude",
+    "lat": "Latitude",
+    "lon": "Longitude",
+    "title": "Title",
+    "place": "Place",
+    "details": "Details",
+    "quake_details": "Earthquake Detail",
+    "location": "Location",
+    "map": "Map",
+    "date": "Date",
+    "time": "Time",
+    "depth": "Depth"
+  }
+}
