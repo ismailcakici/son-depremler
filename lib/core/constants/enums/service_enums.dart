@@ -1,1 +1,1 @@
-enum ServiceEnums { start, end, orderby, timedesc }
+enum ServiceEnums { start, end, orderby, timedesc, minmag }

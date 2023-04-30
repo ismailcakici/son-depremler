@@ -1,4 +1,5 @@
 class ProductConstants {
+  // Service
   static const String afadBaseUrl = 'https://deprem.afad.gov.tr/apiv2/event/';
   static const String urlPath = 'filter?';
   static DateTime dateTimeNow = DateTime.now();

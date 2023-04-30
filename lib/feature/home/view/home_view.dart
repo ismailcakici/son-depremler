@@ -8,6 +8,8 @@ import 'package:son_depremler/core/init/theme/color_scheme/color_scheme_light.da
 import 'package:son_depremler/feature/home/viewmodel/home_view_model.dart';
 import 'package:son_depremler/product/widgets/quake_list_view_builder/quake_list_view_builder.dart';
 
+import '../../../product/widgets/minmag_filter_builder/minmag_filter_builder.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -24,22 +26,37 @@ class HomeView extends StatelessWidget {
           floatingActionButton: _buildFabs(),
           appBar: _buildAppBar(),
           drawer: _buildDrawer(),
-          body: _buildQuakeList(viewModel),
+          body: _buildBody(viewModel),
         );
       },
     );
   }
 
-  QuakeListViewBuilder _buildQuakeList(HomeViewModel viewModel) =>
-      QuakeListViewBuilder(viewModel: viewModel);
-
-  Drawer _buildDrawer() => const Drawer();
-
   AppBar _buildAppBar() => AppBar(
         title: Text(LocaleKeys.appTitle.translate),
       );
 
-  Row _buildFabs() => Row(
+  Widget _buildBody(HomeViewModel viewModel) {
+    return Column(
+      children: [
+        _buildMinMagFilter(viewModel),
+        _buildQuakeList(viewModel),
+      ],
+    );
+  }
+
+  Widget _buildMinMagFilter(HomeViewModel viewModel) {
+    return MinmagFilterBuilder(
+      viewModel: viewModel,
+    );
+  }
+
+  Widget _buildQuakeList(HomeViewModel viewModel) =>
+      Expanded(child: QuakeListViewBuilder(viewModel: viewModel));
+
+  Widget _buildDrawer() => const Drawer();
+
+  Widget _buildFabs() => Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(

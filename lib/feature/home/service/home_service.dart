@@ -9,13 +9,14 @@ class HomeService extends IHomeService {
 
   @override
   Future<List<HomeModel>?> fetchLatestQuakes(
-      String startTime, String endTime) async {
+      String startTime, String endTime, int minmag) async {
     final response = await networkManager.send<HomeModel, List<HomeModel>>(
       ProductConstants.urlPath,
       queryParameters: {
         ServiceEnums.start.name: startTime,
         ServiceEnums.end.name: endTime,
-        ServiceEnums.orderby.name: ServiceEnums.timedesc.name
+        ServiceEnums.orderby.name: ServiceEnums.timedesc.name,
+        ServiceEnums.minmag.name: minmag,
       },
       parseModel: HomeModel(),
       method: RequestType.GET,

@@ -41,6 +41,38 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
     });
   }
 
+  late final _$selectedIndexAtom =
+      Atom(name: '_HomeViewModelBase.selectedIndex', context: context);
+
+  @override
+  int get selectedIndex {
+    _$selectedIndexAtom.reportRead();
+    return super.selectedIndex;
+  }
+
+  @override
+  set selectedIndex(int value) {
+    _$selectedIndexAtom.reportWrite(value, super.selectedIndex, () {
+      super.selectedIndex = value;
+    });
+  }
+
+  late final _$minmagAtom =
+      Atom(name: '_HomeViewModelBase.minmag', context: context);
+
+  @override
+  int get minmag {
+    _$minmagAtom.reportRead();
+    return super.minmag;
+  }
+
+  @override
+  set minmag(int value) {
+    _$minmagAtom.reportWrite(value, super.minmag, () {
+      super.minmag = value;
+    });
+  }
+
   late final _$getQuakesAsyncAction =
       AsyncAction('_HomeViewModelBase.getQuakes', context: context);
 
@@ -51,6 +83,17 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
 
   late final _$_HomeViewModelBaseActionController =
       ActionController(name: '_HomeViewModelBase', context: context);
+
+  @override
+  void changeSelected(int newIndex) {
+    final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
+        name: '_HomeViewModelBase.changeSelected');
+    try {
+      return super.changeSelected(newIndex);
+    } finally {
+      _$_HomeViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void changeLoading() {
@@ -64,10 +107,23 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
   }
 
   @override
+  void changeMinmag(int newMinmag) {
+    final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
+        name: '_HomeViewModelBase.changeMinmag');
+    try {
+      return super.changeMinmag(newMinmag);
+    } finally {
+      _$_HomeViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 quakes: ${quakes},
-isLoading: ${isLoading}
+isLoading: ${isLoading},
+selectedIndex: ${selectedIndex},
+minmag: ${minmag}
     ''';
   }
 }

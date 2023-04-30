@@ -6,5 +6,6 @@ abstract class IHomeService {
 
   IHomeService(this.networkManager);
 
-  Future<List<HomeModel>?> fetchLatestQuakes(String startTime, String endTime);
+  Future<List<HomeModel>?> fetchLatestQuakes(
+      String startTime, String endTime, int minmag);
 }

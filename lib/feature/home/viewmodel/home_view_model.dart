@@ -19,14 +19,23 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
   List<HomeModel>? quakes;
   @observable
   bool isLoading = false;
+  @observable
+  int selectedIndex = 0;
+  @observable
+  int minmag = 0;
+  @action
+  void changeSelected(int newIndex) => selectedIndex = newIndex;
   @action
   void changeLoading() => isLoading = !isLoading;
+  @action
+  void changeMinmag(int newMinmag) => minmag = newMinmag;
   @action
   Future<void> getQuakes() async {
     changeLoading();
     final response = await homeService.fetchLatestQuakes(
       ProductConstants.dateTimeyesterday.toString(),
       ProductConstants.dateTimeNow.toString(),
+      minmag,
     );
     quakes = response;
     changeLoading();
