@@ -21,22 +21,23 @@ class HomeModel extends INetworkModel<HomeModel> {
   String? lastUpdateDate;
   bool? isEventUpdate;
 
-  HomeModel(
-      {this.rms,
-      this.eventID,
-      this.location,
-      this.latitude,
-      this.longitude,
-      this.depth,
-      this.type,
-      this.magnitude,
-      this.country,
-      this.province,
-      this.district,
-      this.neighborhood,
-      this.date,
-      this.isEventUpdate,
-      this.lastUpdateDate});
+  HomeModel({
+    this.rms,
+    this.eventID,
+    this.location,
+    this.latitude,
+    this.longitude,
+    this.depth,
+    this.type,
+    this.magnitude,
+    this.country,
+    this.province,
+    this.district,
+    this.neighborhood,
+    this.date,
+    this.isEventUpdate,
+    this.lastUpdateDate,
+  });
 
   factory HomeModel.fromJson(Map<String, dynamic> json) {
     return _$HomeModelFromJson(json);
