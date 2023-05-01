@@ -16,6 +16,7 @@
     "time": "Zaman",
     "depth": "Derinlik",
     "all": "Hepsi",
-    "no_data": "Bu büyüklükte gösterilecek deprem yok."
+    "no_data": "Bu büyüklükte gösterilecek deprem yok.",
+    "whistle": "Sesinizi duyurmak için basın."
   }
 }

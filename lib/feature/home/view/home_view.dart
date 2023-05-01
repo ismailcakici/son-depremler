@@ -24,16 +24,21 @@ class HomeView extends StatelessWidget {
       onPageBuilder: (context, viewModel) {
         return Scaffold(
           floatingActionButton: _buildFabs(viewModel),
-          appBar: _buildAppBar(),
-          drawer: _buildDrawer(),
+          appBar: _buildAppBar(viewModel),
           body: _buildBody(viewModel),
         );
       },
     );
   }
 
-  AppBar _buildAppBar() => AppBar(
+  AppBar _buildAppBar(HomeViewModel viewModel) => AppBar(
         title: Text(LocaleKeys.appTitle.translate),
+        actions: [
+          IconButton(
+            onPressed: () => viewModel.changeLanguage(),
+            icon: const Icon(Icons.language),
+          ),
+        ],
       );
 
   Widget _buildBody(HomeViewModel viewModel) {
@@ -54,16 +59,14 @@ class HomeView extends StatelessWidget {
   Widget _buildQuakeList(HomeViewModel viewModel) =>
       Expanded(child: QuakeListViewBuilder(viewModel: viewModel));
 
-  Widget _buildDrawer() => const Drawer();
-
   Widget _buildFabs(HomeViewModel viewModel) => Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
             heroTag: 'whistleButton',
-            onPressed: () {},
+            onPressed: viewModel.navigateToWhistleView,
             backgroundColor: ColorSchemeLight.instance.white,
-            child: Image.asset(ImageEnum.whistle.imagePath, height: 40),
+            child: Image.asset(ImageEnum.whistle.imagePath, height: 35),
           ),
           const SizedBox(
             width: 10,
@@ -72,7 +75,7 @@ class HomeView extends StatelessWidget {
             heroTag: 'mapButton',
             onPressed: viewModel.navigateToMapView,
             backgroundColor: ColorSchemeLight.instance.white,
-            child: Image.asset(ImageEnum.map.imagePath, height: 40),
+            child: Image.asset(ImageEnum.map.imagePath, height: 35),
           ),
         ],
       );

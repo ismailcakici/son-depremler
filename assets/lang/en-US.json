@@ -16,6 +16,7 @@
     "time": "Time",
     "depth": "Depth",
     "all": "All",
-    "no_data": "There are no earthquakes of this magnitude to show."
+    "no_data": "There are no earthquakes of this magnitude to show.",
+    "whistle": "Tap icon to blow the whistle"
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:latlong2/latlong.dart';
 import 'package:son_depremler/core/base/view/base_view.dart';
 import 'package:son_depremler/feature/home/model/home_model.dart';
 import 'package:son_depremler/feature/map/viewmodel/map_view_model.dart';

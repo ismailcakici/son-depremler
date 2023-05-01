@@ -1,1 +1,1 @@
-enum ImageEnum { whistle, map, quake }
+enum ImageEnum { whistle, map, quake, sos }

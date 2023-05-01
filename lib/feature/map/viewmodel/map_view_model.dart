@@ -7,6 +7,7 @@ import 'package:geolocator/geolocator.dart';
 
 part 'map_view_model.g.dart';
 
+// ignore: library_private_types_in_public_api
 class MapViewModel = _MapViewModelBase with _$MapViewModel;
 
 abstract class _MapViewModelBase with Store, BaseViewModel {

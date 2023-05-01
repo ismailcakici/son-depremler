@@ -5,4 +5,6 @@ class ProductConstants {
   static DateTime dateTimeNow = DateTime.now();
   static DateTime dateTimeyesterday =
       DateTime.now().subtract(const Duration(days: 1));
+  // Audio
+  static const String audioUrl = 'assets/audio/whistle.mp3';
 }

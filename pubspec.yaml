@@ -23,6 +23,8 @@ dependencies:
   mobx: ^2.1.4
   # Navigation
   go_router: ^7.0.0
+  # Audio
+  assets_audio_player: ^3.0.6
   # Google
   json_annotation: ^4.8.0
   json_serializable: ^6.6.1
@@ -44,6 +46,7 @@ flutter:
   assets:
     - assets/images/
     - assets/lang/
+    - assets/audio/
 
   fonts:
     - family: Poppins

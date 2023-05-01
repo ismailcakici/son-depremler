@@ -30,9 +30,9 @@ class DetailBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _buildDivider(),
-                Text(LocaleKeys.home_place.translate +
-                    '\t:\t' +
-                    quake!.province!),
+                Text(
+                  LocaleKeys.home_place.translate + '\t:\t' + quake!.province!,
+                ),
                 _buildDivider(),
                 Text(
                   '${LocaleKeys.home_time.translate}\t:\t${DateFormat.Hms(context.locale.languageCode).format(

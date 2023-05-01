@@ -85,6 +85,17 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
       ActionController(name: '_HomeViewModelBase', context: context);
 
   @override
+  void changeLanguage() {
+    final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
+        name: '_HomeViewModelBase.changeLanguage');
+    try {
+      return super.changeLanguage();
+    } finally {
+      _$_HomeViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void changeSelected(int newIndex) {
     final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
         name: '_HomeViewModelBase.changeSelected');
@@ -123,6 +134,17 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
         name: '_HomeViewModelBase.navigateToMapView');
     try {
       return super.navigateToMapView();
+    } finally {
+      _$_HomeViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void navigateToWhistleView() {
+    final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
+        name: '_HomeViewModelBase.navigateToWhistleView');
+    try {
+      return super.navigateToWhistleView();
     } finally {
       _$_HomeViewModelBaseActionController.endAction(_$actionInfo);
     }

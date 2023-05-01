@@ -1,6 +1,7 @@
 enum NavigationEnums {
   homeView('/'),
-  mapView('/mapView');
+  mapView('/mapView'),
+  whistleView('/whistleView');
 
   final String routeName;
   const NavigationEnums(this.routeName);
