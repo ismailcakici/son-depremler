@@ -1,5 +1,3 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:son_depremler/core/base/viewmodel/base_view_model.dart';
@@ -33,7 +31,8 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
   void changeMinmag(int newMinmag) => minmag = newMinmag;
   @action
   void navigateToMapView() =>
-      navigationManager.router.push(NavigationEnums.mapView.routeName);
+      navigationManager.router.push(NavigationEnums.mapView.routeName,
+          extra: quakes as List<HomeModel>);
   @action
   Future<void> getQuakes() async {
     changeStatus(StatusEnum.loading);

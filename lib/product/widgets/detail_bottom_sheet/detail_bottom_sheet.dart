@@ -7,7 +7,7 @@ import 'package:son_depremler/core/init/lang/locale_keys.g.dart';
 import 'package:son_depremler/core/init/theme/color_scheme/color_scheme_light.dart';
 import 'package:son_depremler/feature/home/model/home_model.dart';
 
-import '../custom_map/custom_map.dart';
+import '../custom_map/custom_detail_map.dart';
 
 class DetailBottomSheet extends StatelessWidget {
   final HomeModel? quake;

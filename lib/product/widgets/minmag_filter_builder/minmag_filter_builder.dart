@@ -15,7 +15,7 @@ class MinmagFilterBuilder extends StatelessWidget {
     return SizedBox(
       height: context.height / 10,
       child: ListView.builder(
-        itemCount: 10,
+        itemCount: 9,
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context, int index) {
           return Padding(

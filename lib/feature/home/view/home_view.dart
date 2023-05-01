@@ -70,7 +70,7 @@ class HomeView extends StatelessWidget {
           ),
           FloatingActionButton(
             heroTag: 'mapButton',
-            onPressed: () => viewModel.navigateToMapView(),
+            onPressed: viewModel.navigateToMapView,
             backgroundColor: ColorSchemeLight.instance.white,
             child: Image.asset(ImageEnum.map.imagePath, height: 40),
           ),
