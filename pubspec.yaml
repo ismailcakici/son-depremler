@@ -31,6 +31,8 @@ dependencies:
   # Util
   kartal: ^2.8.0
   intl: ^0.17.0
+  # Splash
+  flutter_native_splash: ^2.2.19
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -46,6 +48,10 @@ flutter_launcher_icons:
   android: "launcher_icon"
   image_path: "assets/images/ic_appicon.png"
   min_sdk_android: 21
+
+flutter_native_splash:
+  color: "#F0F5F9"
+  image: "assets/images/ic_appicon.png"
 
 flutter:
   uses-material-design: true
