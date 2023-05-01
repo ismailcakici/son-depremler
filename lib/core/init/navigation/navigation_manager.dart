@@ -21,8 +21,9 @@ class NavigationManager {
       ),
       GoRoute(
         path: NavigationEnums.mapView.routeName,
-        builder: (context, state) =>
-            MapView(quakes: state.extra as List<HomeModel>),
+        builder: (context, state) => MapView(
+          quakes: state.extra as List<HomeModel>? ?? [],
+        ),
       ),
       GoRoute(
         path: NavigationEnums.whistleView.routeName,

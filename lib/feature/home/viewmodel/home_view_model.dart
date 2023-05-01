@@ -42,9 +42,8 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
   @action
   void changeMinmag(int newMinmag) => minmag = newMinmag;
   @action
-  void navigateToMapView() =>
-      navigationManager.router.push(NavigationEnums.mapView.routeName,
-          extra: quakes as List<HomeModel>);
+  void navigateToMapView() => navigationManager.router
+      .push(NavigationEnums.mapView.routeName, extra: quakes);
   @action
   void navigateToWhistleView() =>
       navigationManager.router.push(NavigationEnums.whistleView.routeName);

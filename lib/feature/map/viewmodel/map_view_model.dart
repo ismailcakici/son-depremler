@@ -12,16 +12,49 @@ class MapViewModel = _MapViewModelBase with _$MapViewModel;
 
 abstract class _MapViewModelBase with Store, BaseViewModel {
   late MapController mapController;
+  @observable
+  bool isLoading = false;
+
   @action
-  Future findLocationAndMove() async {
-    await Geolocator.checkPermission().then((permission) async {
-      if (permission.index == 2) {
-        Position location = await Geolocator.getCurrentPosition();
-        mapController.move(LatLng(location.latitude, location.longitude), 10);
-      } else {
-        await Geolocator.requestPermission();
-      }
+  void changeLoading() => isLoading = !isLoading;
+
+  @action
+  Future<void> moveToCenter() async {
+    changeLoading();
+    await getLocation().then((position) {
+      if (position == null) return;
+      mapController.move(
+          LatLng(
+            position.latitude,
+            position.longitude,
+          ),
+          10);
     });
+    changeLoading();
+  }
+
+  @action
+  Future<Position?> getLocation() async {
+    LocationPermission permission = await checkPermission();
+    if (permission == LocationPermission.always ||
+        permission == LocationPermission.whileInUse) {
+      Position? position = await Geolocator.getCurrentPosition();
+      return position;
+    } else {
+      await requestPermission();
+    }
+    return null;
+  }
+
+  @action
+  Future<LocationPermission> checkPermission() async {
+    LocationPermission permission = await Geolocator.checkPermission();
+    return permission;
+  }
+
+  @action
+  Future<void> requestPermission() async {
+    await Geolocator.requestPermission();
   }
 
   @override
