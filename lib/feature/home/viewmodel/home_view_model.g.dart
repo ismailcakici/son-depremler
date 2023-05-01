@@ -25,19 +25,19 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
     });
   }
 
-  late final _$isLoadingAtom =
-      Atom(name: '_HomeViewModelBase.isLoading', context: context);
+  late final _$statusAtom =
+      Atom(name: '_HomeViewModelBase.status', context: context);
 
   @override
-  bool get isLoading {
-    _$isLoadingAtom.reportRead();
-    return super.isLoading;
+  StatusEnum get status {
+    _$statusAtom.reportRead();
+    return super.status;
   }
 
   @override
-  set isLoading(bool value) {
-    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
-      super.isLoading = value;
+  set status(StatusEnum value) {
+    _$statusAtom.reportWrite(value, super.status, () {
+      super.status = value;
     });
   }
 
@@ -96,11 +96,11 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
   }
 
   @override
-  void changeLoading() {
+  void changeStatus(StatusEnum newStatus) {
     final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
-        name: '_HomeViewModelBase.changeLoading');
+        name: '_HomeViewModelBase.changeStatus');
     try {
-      return super.changeLoading();
+      return super.changeStatus(newStatus);
     } finally {
       _$_HomeViewModelBaseActionController.endAction(_$actionInfo);
     }
@@ -121,7 +121,7 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
   String toString() {
     return '''
 quakes: ${quakes},
-isLoading: ${isLoading},
+status: ${status},
 selectedIndex: ${selectedIndex},
 minmag: ${minmag}
     ''';

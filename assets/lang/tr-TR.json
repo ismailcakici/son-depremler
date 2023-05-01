@@ -15,6 +15,7 @@
     "date": "Tarih",
     "time": "Zaman",
     "depth": "Derinlik",
-    "all": "Hepsi"
+    "all": "Hepsi",
+    "no_data": "Bu büyüklükte gösterilecek deprem yok."
   }
 }

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:son_depremler/core/base/viewmodel/base_view_model.dart';
+import 'package:son_depremler/core/constants/enums/status_enums.dart';
 import 'package:son_depremler/core/init/network/service/service_manager.dart';
 import 'package:son_depremler/feature/home/model/home_model.dart';
 import 'package:son_depremler/feature/home/service/home_service.dart';
@@ -18,7 +19,7 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
   @observable
   List<HomeModel>? quakes;
   @observable
-  bool isLoading = false;
+  StatusEnum status = StatusEnum.initial;
   @observable
   int selectedIndex = 0;
   @observable
@@ -26,19 +27,21 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
   @action
   void changeSelected(int newIndex) => selectedIndex = newIndex;
   @action
-  void changeLoading() => isLoading = !isLoading;
+  void changeStatus(StatusEnum newStatus) => status = newStatus;
   @action
   void changeMinmag(int newMinmag) => minmag = newMinmag;
   @action
   Future<void> getQuakes() async {
-    changeLoading();
+    changeStatus(StatusEnum.loading);
     final response = await homeService.fetchLatestQuakes(
       ProductConstants.dateTimeyesterday.toString(),
       ProductConstants.dateTimeNow.toString(),
       minmag,
     );
     quakes = response;
-    changeLoading();
+    quakes!.isEmpty
+        ? changeStatus(StatusEnum.empty)
+        : changeStatus(StatusEnum.succes);
   }
 
   @override

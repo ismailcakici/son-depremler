@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:son_depremler/core/constants/enums/status_enums.dart';
+import 'package:son_depremler/core/constants/extensions/string_extension.dart';
+import 'package:son_depremler/core/init/lang/locale_keys.g.dart';
 import 'package:son_depremler/feature/home/viewmodel/home_view_model.dart';
 import 'package:son_depremler/product/widgets/detail_bottom_sheet/detail_bottom_sheet.dart';
 
@@ -17,25 +20,36 @@ class QuakeListViewBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(
       builder: (context) {
-        return viewModel.isLoading
-            ? const Center(
-                child: CircularProgressIndicator(),
-              )
-            : ListView.builder(
-                itemCount: viewModel.quakes?.length,
-                itemBuilder: (BuildContext context, int index) {
-                  HomeModel? quake = viewModel.quakes?[index];
-                  return QuakeListtile(
-                    quake: quake,
-                    onTap: () {
-                      showModalBottomSheet(
-                          context: context,
-                          builder: (context) =>
-                              DetailBottomSheet(quake: quake));
-                    },
-                  );
-                },
-              );
+        switch (viewModel.status) {
+          case StatusEnum.loading:
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          case StatusEnum.empty:
+            return Center(
+              child: Text(
+                LocaleKeys.home_no_data.translate,
+                textAlign: TextAlign.center,
+              ),
+            );
+          case StatusEnum.succes:
+            return ListView.builder(
+              itemCount: viewModel.quakes?.length,
+              itemBuilder: (BuildContext context, int index) {
+                HomeModel? quake = viewModel.quakes?[index];
+                return QuakeListtile(
+                  quake: quake,
+                  onTap: () {
+                    showModalBottomSheet(
+                        context: context,
+                        builder: (context) => DetailBottomSheet(quake: quake));
+                  },
+                );
+              },
+            );
+          default:
+            return const SizedBox.shrink();
+        }
       },
     );
   }

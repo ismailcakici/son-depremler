@@ -17,6 +17,7 @@ abstract class  LocaleKeys {
   static const home_time = 'home.time';
   static const home_depth = 'home.depth';
   static const home_all = 'home.all';
+  static const home_no_data = 'home.no_data';
   static const home = 'home';
 
 }

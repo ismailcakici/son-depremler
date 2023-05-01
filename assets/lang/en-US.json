@@ -15,6 +15,7 @@
     "date": "Date",
     "time": "Time",
     "depth": "Depth",
-    "all": "All"
+    "all": "All",
+    "no_data": "There are no earthquakes of this magnitude to show."
   }
 }
