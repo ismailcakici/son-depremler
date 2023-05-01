@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:son_depremler/core/base/viewmodel/base_view_model.dart';
+import 'package:son_depremler/core/constants/enums/navigation_enums.dart';
 import 'package:son_depremler/core/constants/enums/status_enums.dart';
 import 'package:son_depremler/core/init/network/service/service_manager.dart';
 import 'package:son_depremler/feature/home/model/home_model.dart';
@@ -30,6 +31,9 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
   void changeStatus(StatusEnum newStatus) => status = newStatus;
   @action
   void changeMinmag(int newMinmag) => minmag = newMinmag;
+  @action
+  void navigateToMapView() =>
+      navigationManager.router.push(NavigationEnums.mapView.routeName);
   @action
   Future<void> getQuakes() async {
     changeStatus(StatusEnum.loading);

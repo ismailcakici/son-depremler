@@ -33,19 +33,25 @@ class QuakeListViewBuilder extends StatelessWidget {
               ),
             );
           case StatusEnum.succes:
-            return ListView.builder(
-              itemCount: viewModel.quakes?.length,
-              itemBuilder: (BuildContext context, int index) {
-                HomeModel? quake = viewModel.quakes?[index];
-                return QuakeListtile(
-                  quake: quake,
-                  onTap: () {
-                    showModalBottomSheet(
-                        context: context,
-                        builder: (context) => DetailBottomSheet(quake: quake));
-                  },
-                );
+            return RefreshIndicator(
+              onRefresh: () async {
+                await viewModel.getQuakes();
               },
+              child: ListView.builder(
+                itemCount: viewModel.quakes?.length,
+                itemBuilder: (BuildContext context, int index) {
+                  HomeModel? quake = viewModel.quakes?[index];
+                  return QuakeListtile(
+                    quake: quake,
+                    onTap: () {
+                      showModalBottomSheet(
+                          context: context,
+                          builder: (context) =>
+                              DetailBottomSheet(quake: quake));
+                    },
+                  );
+                },
+              ),
             );
           default:
             return const SizedBox.shrink();

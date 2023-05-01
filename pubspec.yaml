@@ -21,6 +21,8 @@ dependencies:
   # State
   flutter_mobx: ^2.0.6+5
   mobx: ^2.1.4
+  # Navigation
+  go_router: ^7.0.0
   # Google
   json_annotation: ^4.8.0
   json_serializable: ^6.6.1

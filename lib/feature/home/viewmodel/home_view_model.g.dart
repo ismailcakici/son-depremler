@@ -118,6 +118,17 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
   }
 
   @override
+  void navigateToMapView() {
+    final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
+        name: '_HomeViewModelBase.navigateToMapView');
+    try {
+      return super.navigateToMapView();
+    } finally {
+      _$_HomeViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 quakes: ${quakes},

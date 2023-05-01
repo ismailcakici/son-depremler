@@ -23,7 +23,7 @@ class HomeView extends StatelessWidget {
       },
       onPageBuilder: (context, viewModel) {
         return Scaffold(
-          floatingActionButton: _buildFabs(),
+          floatingActionButton: _buildFabs(viewModel),
           appBar: _buildAppBar(),
           drawer: _buildDrawer(),
           body: _buildBody(viewModel),
@@ -56,10 +56,11 @@ class HomeView extends StatelessWidget {
 
   Widget _buildDrawer() => const Drawer();
 
-  Widget _buildFabs() => Row(
+  Widget _buildFabs(HomeViewModel viewModel) => Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: 'whistleButton',
             onPressed: () {},
             backgroundColor: ColorSchemeLight.instance.white,
             child: Image.asset(ImageEnum.whistle.imagePath, height: 40),
@@ -68,7 +69,8 @@ class HomeView extends StatelessWidget {
             width: 10,
           ),
           FloatingActionButton(
-            onPressed: () {},
+            heroTag: 'mapButton',
+            onPressed: () => viewModel.navigateToMapView(),
             backgroundColor: ColorSchemeLight.instance.white,
             child: Image.asset(ImageEnum.map.imagePath, height: 40),
           ),
