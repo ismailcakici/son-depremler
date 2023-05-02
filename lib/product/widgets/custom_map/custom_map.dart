@@ -20,13 +20,18 @@ class CustomMap extends StatelessWidget {
     return FlutterMap(
       mapController: mapViewModel.mapController,
       options: MapOptions(
+        absorbPanEventsOnScrollables: true,
         center: LatLng(
           37.575275,
           36.922821,
         ),
         zoom: 9,
       ),
-      nonRotatedChildren: [
+      children: [
+        TileLayer(
+          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          userAgentPackageName: 'com.example.app',
+        ),
         CircleLayer(
           circles: List.generate(
             quakes?.length ?? 0,
@@ -36,15 +41,9 @@ class CustomMap extends StatelessWidget {
                 double.parse(quakes![index].latitude!),
                 double.parse(quakes![index].longitude!),
               ),
-              radius: 10 * double.parse(quakes![index].magnitude!),
+              radius: 5 * double.parse(quakes![index].magnitude!),
             ),
           ),
-        ),
-      ],
-      children: [
-        TileLayer(
-          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          userAgentPackageName: 'com.example.app',
         ),
       ],
     );

@@ -26,18 +26,20 @@ class CustomDetailMap extends StatelessWidget {
           ),
           zoom: 9.2,
         ),
-        nonRotatedChildren: [
+        children: [
+          TileLayer(
+            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            userAgentPackageName: 'com.example.app',
+          ),
           CircleLayer(
             circles: [
               CircleMarker(
-                borderColor: ColorSchemeLight.instance.red,
-                borderStrokeWidth: 3,
                 color: ColorSchemeLight.instance.red.withOpacity(0.5),
                 point: LatLng(
                   double.parse(quake!.latitude!),
                   double.parse(quake!.longitude!),
                 ),
-                radius: 15 * double.parse(quake!.magnitude!),
+                radius: 20 * double.parse(quake!.magnitude!),
               ),
             ],
           ),
@@ -53,12 +55,6 @@ class CustomDetailMap extends StatelessWidget {
                 },
               ),
             ],
-          ),
-        ],
-        children: [
-          TileLayer(
-            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            userAgentPackageName: 'com.example.app',
           ),
         ],
       ),
