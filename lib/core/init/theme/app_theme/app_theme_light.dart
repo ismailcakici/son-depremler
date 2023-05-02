@@ -25,6 +25,7 @@ class AppThemeLight extends AppTheme with IColorSchemeLight {
         centerTitle: true,
         scrolledUnderElevation: 0,
         elevation: 0,
+        systemOverlayStyle: colorSchemeLight!.systemUiOverlayStyleLight,
       );
 
   ColorScheme get _colorScheme => ColorScheme(

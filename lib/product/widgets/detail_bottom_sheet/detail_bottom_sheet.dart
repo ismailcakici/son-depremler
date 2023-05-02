@@ -2,6 +2,7 @@
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 import 'package:son_depremler/core/constants/extensions/string_extension.dart';
 import 'package:son_depremler/core/init/lang/locale_keys.g.dart';
 import 'package:son_depremler/core/init/theme/color_scheme/color_scheme_light.dart';
@@ -30,9 +31,13 @@ class DetailBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _buildDivider(),
-                Text(
-                  LocaleKeys.home_place.translate + '\t:\t' + quake!.province!,
-                ),
+                quake!.province.isNullOrEmpty
+                    ? Text(LocaleKeys.home_place.translate +
+                        '\t:\t' +
+                        quake!.country!)
+                    : Text(LocaleKeys.home_place.translate +
+                        '\t:\t' +
+                        quake!.province!),
                 _buildDivider(),
                 Text(
                   '${LocaleKeys.home_time.translate}\t:\t${DateFormat.Hms(context.locale.languageCode).format(
