@@ -1,16 +1,40 @@
-# son_depremler
+# Son Depremler
 
-A new Flutter project.
+## Play Store
 
-## Getting Started
+<a href="https://play.google.com/store" target="_blank"><img src="screenshots/googleplay.png" width="250"></a>
 
-This project is a starting point for a Flutter application.
+## Tech Stack
+- MVVM Architecture
+- State Management : [Mobx](https://pub.dev/packages/mobx)
+- Network : [Vexana](https://pub.dev/packages/vexana)
+- Localization : [Easy Localization](https://pub.dev/packages/easy_localization)
+- Navigation : [Go Router](https://pub.dev/packages/go_router)
+- APİ : [AFAD](https://deprem.afad.gov.tr/event-service)
 
-A few resources to get you started if this is your first Flutter project:
+## Preview
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<table>
+  <tr align="center">
+    <td colspan="4">Preview</td>
+</tr>
+  <tr align="center">
+    <td colspan="4"><img src="screenshots/banner.png"></td>
+  </tr>
+  <tr align="center">
+    <td colspan="4">Home Screen / Detail Screen</td>
+  </tr>
+  <tr align="center">
+    <td colspan="2"><img src="screenshots/home.jpg" width="250"></td>
+    <td colspan="2"><img src="screenshots/detail.jpg" width="250"></td>
+  </tr>
+  <tr align="center">
+    <td colspan="4">Map Screen / Whistle Screen</td>
+  </tr>
+  <tr align="center">
+    <td colspan="2"><img src="screenshots/map.jpg" width="250"></td>
+    <td colspan="2"><img src="screenshots/whistle.jpg" width="250"></td>
+  </tr>
+ </table>
+
