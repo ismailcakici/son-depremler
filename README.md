@@ -2,7 +2,7 @@
 
 ## Play Store
 
-<a href="https://play.google.com/store" target="_blank"><img src="screenshots/googleplay.png" width="250"></a>
+<a href="https://play.google.com/store/apps/details?id=com.son.depremler" target="_blank"><img src="screenshots/googleplay.png" width="250"></a>
 
 ## Tech Stack
 - MVVM Architecture
