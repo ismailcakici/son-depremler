@@ -10,6 +10,7 @@
 - Network : [Vexana](https://pub.dev/packages/vexana)
 - Localization : [Easy Localization](https://pub.dev/packages/easy_localization)
 - Navigation : [Go Router](https://pub.dev/packages/go_router)
+- Maps : [Flutter Map](https://pub.dev/packages/flutter_map)
 - APİ : [AFAD](https://deprem.afad.gov.tr/event-service)
 
 ## Preview
